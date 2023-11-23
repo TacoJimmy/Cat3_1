@@ -16,7 +16,7 @@ if __name__ == '__main__':
         client = mqtt.Client()
         client.on_connect
         client.username_pw_set('infilink','3whDyeH9')
-        client.connect('mqtt-device.fetiot3p1.fetnet.net', 8884, 60)
+        client.connect('mqtt-device.fetiot3s1.fetnet.net', 8884, 60)
         #power_t = random.randint(1,10)
         
         payload_iaq = {"test":1000} #json
