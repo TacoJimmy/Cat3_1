@@ -15,7 +15,7 @@ if __name__ == '__main__':
     while True:
         client = mqtt.Client()
         client.on_connect
-        client.username_pw_set('infilink','3whDyeH9')
+        client.username_pw_set('3whDyeH9','infilink')
         client.connect('mqtt-device.fetiot3s1.fetnet.net', 8884, 60)
         #power_t = random.randint(1,10)
         
