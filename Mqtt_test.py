@@ -1,3 +1,4 @@
+'''
 import codecs
 # -*- coding: UTF-8 -*-
 
@@ -14,7 +15,7 @@ import ssl
 
 if __name__ == '__main__':  
     while True:
-        '''
+        
         print ("Production")
         client = mqtt.Client()
         client.on_connect
@@ -25,7 +26,7 @@ if __name__ == '__main__':
         payload_iaq = {"test":1000} #json
         print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
         time.sleep(10)
-        '''
+        
         print ("Station")
         #client = mqtt.Client('', True, None, mqtt.MQTTv31)
         #context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
@@ -41,3 +42,32 @@ if __name__ == '__main__':
              "data": [{"values":{"F4EL1_BackupPower":100}}]}]
         print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
         time.sleep(30)
+
+        
+'''
+import paho.mqtt.client as mqtt
+import json
+
+HOST = "mqtt-device.fetiot3p1.fetnet.net"
+PORT = 8884
+USER = 'infilink'
+PASS = '3whDyeH9'
+TOPIC = "/smartbuilding/v1/telemetry/nh220"
+
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+    client.subscribe(TOPIC)
+
+def on_message(client, userdata, msg):
+    # msg.topic
+    messages = json.loads(msg.payload)['messages']
+    if (messages == 'Git'): print("Hub")
+
+if __name__ == '__main__':
+
+    client = mqtt.Client()
+    # client.username_pw_set(USER, PASS)
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(HOST, PORT, 60)
+    client.loop_forever()
