@@ -60,8 +60,9 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     # msg.topic
-    messages = json.loads(msg.payload)['messages']
-    if (messages == 'Git'): print("Hub")
+    messages = json.loads(msg.payload)
+    print(messages)
+    print("test")
 
 if __name__ == '__main__':
 
