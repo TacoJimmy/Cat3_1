@@ -35,6 +35,9 @@ if __name__ == '__main__':
         client.connect('mqtt-device.fetiot3s1.fetnet.net', 8884, 60)
         #power_t = random.randint(1,10)
         
-        payload_iaq = {"test":1000} #json
+        payload_iaq = [{"access_token": "8G60nMefNfBUeoY7ebm6",
+             "app": "ems_demo_fet",
+             "type": "3P3WMETER",
+             "data": [{"values":{"F4EL1_BackupPower":100}}]}]
         print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
         time.sleep(30)
