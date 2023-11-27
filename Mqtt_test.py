@@ -37,4 +37,4 @@ if __name__ == '__main__':
         
         payload_iaq = {"test":1000} #json
         print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
-        time.sleep(10)
+        time.sleep(30)
