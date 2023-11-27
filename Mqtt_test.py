@@ -66,7 +66,7 @@ def on_message(client, userdata, msg):
 if __name__ == '__main__':
 
     client = mqtt.Client()
-    # client.username_pw_set(USER, PASS)
+    client.username_pw_set(USER, PASS)
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(HOST, PORT, 60)
