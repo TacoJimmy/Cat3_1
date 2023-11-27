@@ -50,8 +50,8 @@ import json
 
 HOST = "mqtt-device.fetiot3p1.fetnet.net"
 PORT = 8884
-USER = 'infilink'
-PASS = '3whDyeH9'
+USER = '3whDyeH9'
+PASS = 'infilink'
 TOPIC = "/smartbuilding/v1/telemetry/nh220"
 
 def on_connect(client, userdata, flags, rc):
