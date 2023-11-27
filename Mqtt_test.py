@@ -4,6 +4,7 @@ import codecs
 import paho.mqtt.client as mqtt
 import json
 import time
+import ssl
 
 #from django.template.defaultfilters import random
 
@@ -26,7 +27,8 @@ if __name__ == '__main__':
         time.sleep(10)
         '''
         print ("Station")
-        client = mqtt.Client()
+        client = mqtt.Client('', True, None, mqtt.MQTTv31)
+        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         client.on_connect
         client.username_pw_set('fQdc44pz','infilink')
         client.connect('mqtt-device.fetiot3s1.fetnet.net', 8884, 60)
