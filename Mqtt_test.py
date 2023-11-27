@@ -33,5 +33,5 @@ if __name__ == '__main__':
         #power_t = random.randint(1,10)
         
         payload_iaq = {"test":1000} #json
-        print(client.publish("smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
+        print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
         time.sleep(10)
