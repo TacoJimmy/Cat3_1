@@ -39,9 +39,9 @@ if __name__ == '__main__':
 
         print ("Station")
         client1 = mqtt.Client('', True, None, mqtt.MQTTv31)
-        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+        context1 = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         client1 = mqtt.Client()
-        client1.tls_set_context(context)
+        client1.tls_set_context(context1)
         client1.username_pw_set('infilink','3whDyeH9')
         client1.connect('mqtt-device.fetiot3p1.fetnet.net', 8884, 60)
         #power_t = random.randint(1,10)
@@ -50,5 +50,5 @@ if __name__ == '__main__':
              "app": "ems_demo_fet",
              "type": "3P3WMETER",
              "data": [{"values":{"F4EL1_BackupPower":100}}]}]
-        print(client.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
+        print(client1.publish("/smartbuilding/v1/telemetry/nh220", json.dumps(payload_iaq)))
         time.sleep(10)
