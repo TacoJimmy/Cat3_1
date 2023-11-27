@@ -26,8 +26,8 @@ if __name__ == '__main__':
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         client = mqtt.Client()
         client.tls_set_context(context)
-        client.username_pw_set('infilink','fQdc44pz')
-        client.connect('mqtt-device.fetiot3s1.fetnet.net', 8884, 60)
+        client.username_pw_set('infilink','3whDyeH9')
+        client.connect('mqtt-device.fetiot3p1.fetnet.net', 8884, 60)
         #power_t = random.randint(1,10)
         
         payload_iaq = [{"access_token": "8G60nMefNfBUeoY7ebm6",
